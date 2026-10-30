@@ -593,12 +593,37 @@
           </div>
 
           <!-- Resumo dos Serviços Selecionados dentro da Agenda (Aparece quando há itens selecionados) -->
-          <div id="agenda-selected-banner" class="hidden bg-sage-50 border-b border-sage/15 px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
-            <div class="flex items-center gap-2 text-sage font-medium">
-              <span class="font-bold">✓ Combo selecionado:</span>
-              <span id="agenda-banner-items" class="text-charcoal font-semibold"></span>
+          <div id="agenda-selected-banner" class="hidden bg-sage-50 border-b border-sage/20 px-5 sm:px-6 py-4 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2 text-sage text-xs sm:text-sm font-bold">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-emerald-cta text-white text-xs">✓</span>
+                <span>Seu Combo Selecionado (Pronto para colar no formulário abaixo):</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-xs sm:text-sm text-sage bg-white px-3 py-1 rounded-full border border-sage/15" id="agenda-banner-meta"></span>
+                <button
+                  type="button"
+                  data-copy-combo-btn
+                  class="inline-flex items-center gap-1.5 bg-sage hover:bg-sage-light text-white text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-sm transition-all cursor-pointer"
+                >
+                  <svg class="w-3.5 h-3.5 text-amber-cta shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                  </svg>
+                  <span data-copy-combo-label>Copiar Descrição do Combo</span>
+                </button>
+              </div>
             </div>
-            <div class="font-bold text-sage" id="agenda-banner-meta"></div>
+
+            <div class="bg-white rounded-2xl p-3.5 border border-sage/15 text-xs text-charcoal space-y-1">
+              <p id="agenda-banner-items" class="font-bold text-charcoal text-xs sm:text-sm"></p>
+              <pre id="agenda-banner-fulltext" class="text-[11px] sm:text-xs text-charcoal-muted whitespace-pre-wrap font-sans leading-relaxed"></pre>
+            </div>
+
+            <p class="text-[11px] sm:text-xs text-sage font-medium flex items-center gap-1.5">
+              <span>💡</span>
+              <span><strong>Como incluir no Google Agenda:</strong> ao clicar em um horário abaixo, basta <strong>Colar (Ctrl+V ou segurar e Colar no celular)</strong> essa descrição no formulário de agendamento!</span>
+            </p>
           </div>
 
           <!-- Área do Iframe do Google Agenda / Fallback Inteligente -->
@@ -976,7 +1001,7 @@
       </p>
 
       <!-- Resumo do Combo no Modal -->
-      <div id="modal-combo-box" class="mt-5 p-4 rounded-2xl bg-sand border border-sand-200 space-y-2">
+      <div id="modal-combo-box" class="mt-5 p-4 rounded-2xl bg-sand border border-sand-200 space-y-2.5">
         <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-sage">
           <span>Resumo da Sessão</span>
           <span id="modal-summary-duration">0 min</span>
@@ -987,6 +1012,16 @@
         <div class="pt-2 border-t border-sand-200 flex items-center justify-between text-sm">
           <span class="text-charcoal-muted">Investimento estimado:</span>
           <strong id="modal-summary-price" class="text-base text-sage">Consulte</strong>
+        </div>
+        <div class="pt-2 border-t border-sand-200/80 flex items-center justify-between gap-2">
+          <span class="text-[11px] text-charcoal-muted">Para usar no Google Agenda:</span>
+          <button
+            type="button"
+            data-copy-combo-btn
+            class="inline-flex items-center gap-1.5 bg-white hover:bg-sage-50 text-sage border border-sage/25 text-xs font-bold px-3 py-1 rounded-lg transition-all cursor-pointer"
+          >
+            <span data-copy-combo-label>📋 Copiar Descrição</span>
+          </button>
         </div>
       </div>
 
@@ -999,20 +1034,56 @@
           <span>Enviar Combo pelo WhatsApp (Mais Rápido)</span>
         </button>
 
-        <a data-calendar-external-link href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-sage hover:bg-sage-light text-white font-bold text-sm sm:text-base px-6 py-4 rounded-2xl shadow-md transition-all">
-          <svg class="w-5 h-5 text-amber-cta shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          <span>Escolher Horário no Google Agenda</span>
-        </a>
+        <button
+          type="button"
+          id="modal-scroll-to-agenda-btn"
+          class="w-full inline-flex flex-col items-center justify-center bg-sage hover:bg-sage-light text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer"
+        >
+          <span class="inline-flex items-center gap-2.5">
+            <svg class="w-5 h-5 text-amber-cta shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Escolher Horário no Google Agenda</span>
+          </span>
+          <span class="text-[11px] font-medium text-amber-soft/90 mt-0.5">
+            (Copia a descrição do combo automaticamente p/ você colar)
+          </span>
+        </button>
+
+        <div class="text-center pt-1">
+          <a
+            data-calendar-external-link
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-sage hover:underline"
+          >
+            <span>Ou abrir Google Agenda em nova aba (também copia seu combo)</span>
+            <span>↗</span>
+          </a>
+        </div>
       </div>
 
       <p class="mt-4 text-center text-[11px] text-charcoal-muted">
         📍 Taxa de deslocamento zero para moradores do condomínio e vizinhança.
       </p>
+    </div>
+  </div>
+
+  <!-- Toast Flutuante de Confirmação de Cópia para o Google Agenda -->
+  <div
+    id="copy-toast"
+    role="status"
+    aria-live="polite"
+    class="fixed top-20 left-1/2 -translate-x-1/2 z-50 hidden max-w-md w-[92%] bg-charcoal text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-amber-cta/40 items-center gap-3"
+  >
+    <span class="w-7 h-7 rounded-full bg-emerald-cta text-white flex items-center justify-center font-bold text-sm shrink-0">✓</span>
+    <div class="text-xs sm:text-sm leading-snug">
+      <strong class="block text-amber-cta">Descrição do combo copiada!</strong>
+      <span class="text-sand/90">Ao escolher seu horário no Google Agenda, basta <strong>Colar (Ctrl+V ou Colar)</strong> no campo de observações.</span>
     </div>
   </div>
 
@@ -1290,6 +1361,69 @@
       return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
     }
 
+    function buildCalendarComboText() {
+      const selected = getSelectedServices();
+      if (selected.length === 0) {
+        return `Atendimento Home Care Personalizado (${CONFIG.NEIGHBORHOOD_NAME})`;
+      }
+
+      const totalMinutes = selected.reduce((acc, item) => acc + item.durationMinutes, 0);
+      const rawTotal = selected.reduce((acc, item) => acc + item.price, 0);
+      const finalTotal = Math.max(rawTotal, CONFIG.MIN_HOME_CARE_VALUE);
+
+      const itemsText = selected
+        .map((s) => `• ${s.title} (${s.subtitle}) — ${s.durationLabel} (${formatCurrency(s.price)})`)
+        .join("\n");
+
+      return `Serviços selecionados no site:\n${itemsText}\n⏱ Duração estimada: ${formatDuration(totalMinutes)} | 💳 Valor estimado: ${formatCurrency(finalTotal)} (Taxa de deslocamento zero)`;
+    }
+
+    let copyToastTimeout = null;
+
+    async function copyComboToClipboard(showToast = true) {
+      const textToCopy = buildCalendarComboText();
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(textToCopy);
+        } else {
+          throw new Error("Clipboard API unavailable");
+        }
+      } catch (err) {
+        const tempTextarea = document.createElement("textarea");
+        tempTextarea.value = textToCopy;
+        tempTextarea.setAttribute("readonly", "");
+        tempTextarea.style.position = "fixed";
+        tempTextarea.style.opacity = "0";
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextarea);
+      }
+
+      // Atualiza texto dos botões de cópia
+      document.querySelectorAll("[data-copy-combo-label]").forEach((labelEl) => {
+        const originalText = labelEl.getAttribute("data-original-label") || labelEl.textContent;
+        labelEl.setAttribute("data-original-label", originalText);
+        labelEl.textContent = "✓ Copiado! Cole no formulário";
+        setTimeout(() => {
+          labelEl.textContent = originalText;
+        }, 4500);
+      });
+
+      if (showToast) {
+        const toast = document.getElementById("copy-toast");
+        if (toast) {
+          toast.classList.remove("hidden");
+          toast.classList.add("flex");
+          if (copyToastTimeout) clearTimeout(copyToastTimeout);
+          copyToastTimeout = setTimeout(() => {
+            toast.classList.add("hidden");
+            toast.classList.remove("flex");
+          }, 6000);
+        }
+      }
+    }
+
     /* =========================================================================
        APLICAÇÃO DAS VARIÁVEIS DO CONFIG NO DOM
        ========================================================================= */
@@ -1520,6 +1654,7 @@
       const agendaBanner = document.getElementById("agenda-selected-banner");
       const agendaBannerItems = document.getElementById("agenda-banner-items");
       const agendaBannerMeta = document.getElementById("agenda-banner-meta");
+      const agendaBannerFulltext = document.getElementById("agenda-banner-fulltext");
       const whatsappBadge = document.getElementById("whatsapp-float-badge");
       const whatsappLabel = document.getElementById("whatsapp-float-label");
 
@@ -1564,6 +1699,9 @@
         agendaBanner.classList.remove("hidden");
         agendaBannerItems.textContent = shortNamesJoined;
         agendaBannerMeta.textContent = `⏱ ${formatDuration(totalMinutes)} • ${formatCurrency(finalTotal)}`;
+        if (agendaBannerFulltext) {
+          agendaBannerFulltext.textContent = buildCalendarComboText();
+        }
 
         // WhatsApp Flutuante
         whatsappBadge.textContent = String(count);
@@ -1705,6 +1843,35 @@
       document.querySelectorAll("[data-whatsapp-trigger]").forEach((btn) => {
         btn.addEventListener("click", () => {
           window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
+        });
+      });
+
+      // Botões de copiar descrição do combo para o Google Agenda
+      document.querySelectorAll("[data-copy-combo-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          copyComboToClipboard(true);
+        });
+      });
+
+      // Botão no Modal para ir até a Agenda do Google na página (já copiando o combo)
+      const modalScrollToAgendaBtn = document.getElementById("modal-scroll-to-agenda-btn");
+      if (modalScrollToAgendaBtn) {
+        modalScrollToAgendaBtn.addEventListener("click", () => {
+          copyComboToClipboard(true);
+          closeModal();
+          const agendaSection = document.getElementById("agenda");
+          if (agendaSection) {
+            agendaSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      }
+
+      // Ao clicar para abrir o Google Agenda em nova aba, também copia o combo automaticamente se houver seleção
+      document.querySelectorAll("[data-calendar-external-link]").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (getSelectedServices().length > 0) {
+            copyComboToClipboard(true);
+          }
         });
       });
     }
