@@ -280,7 +280,7 @@
           <div class="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-charcoal-muted">
             <div class="flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
-              <span>Atendimento Feminino & Masculino</span>
+              <span data-gender-badge>Atendimento Feminino Exclusivo</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
@@ -1160,6 +1160,9 @@
       // Valor mínimo para atendimento Home Care (em Reais)
       MIN_HOME_CARE_VALUE: 90,
 
+      // Ativar/Desativar modo Masculino & Esportivo (mude para true quando desejar reativar no futuro)
+      ENABLE_MALE_SERVICES: false,
+
       // Catálogo de Serviços e Combos (Tempos em minutos e Preços em Reais facilmente editáveis)
       SERVICES: [
         {
@@ -1343,7 +1346,12 @@
     }
 
     function getSelectedServices() {
-      return CONFIG.SERVICES.filter((service) => state.selectedServiceIds.has(service.id));
+      return CONFIG.SERVICES.filter((service) => {
+        if (!CONFIG.ENABLE_MALE_SERVICES && service.category.includes("masculino") && !service.category.includes("feminino")) {
+          return false;
+        }
+        return state.selectedServiceIds.has(service.id);
+      });
     }
 
     function buildWhatsAppUrl() {
@@ -1398,6 +1406,23 @@
         minValEl.textContent = formatCurrency(CONFIG.MIN_HOME_CARE_VALUE);
       }
 
+      // Controla visibilidade da aba Masculino & Esportivo e do badge de atendimento
+      const maleTabBtn = document.querySelector('[data-filter-tab="masculino"]');
+      if (maleTabBtn) {
+        if (CONFIG.ENABLE_MALE_SERVICES) {
+          maleTabBtn.classList.remove("hidden");
+        } else {
+          maleTabBtn.classList.add("hidden");
+        }
+      }
+
+      const genderBadge = document.querySelector('[data-gender-badge]');
+      if (genderBadge) {
+        genderBadge.textContent = CONFIG.ENABLE_MALE_SERVICES
+          ? "Atendimento Feminino & Masculino"
+          : "Atendimento Feminino Exclusivo";
+      }
+
       // Configura links e iframe do Google Agenda
       const isPlaceholderUrl =
         !CONFIG.GOOGLE_CALENDAR_URL ||
@@ -1434,7 +1459,17 @@
       const grid = document.getElementById("services-grid");
       if (!grid) return;
 
-      const filtered = CONFIG.SERVICES.filter((service) => {
+      const availableServices = CONFIG.SERVICES.filter((service) => {
+        if (!CONFIG.ENABLE_MALE_SERVICES) {
+          // Quando desativado, oculta combos exclusivos masculinos
+          if (service.category.includes("masculino") && !service.category.includes("feminino")) {
+            return false;
+          }
+        }
+        return true;
+      });
+
+      const filtered = availableServices.filter((service) => {
         if (state.activeTab === "all") return true;
         return service.category.includes(state.activeTab);
       });
@@ -1860,7 +1895,16 @@
       }
 
       if (testimonialsGrid && Array.isArray(CONFIG.TESTIMONIALS)) {
-        testimonialsGrid.innerHTML = CONFIG.TESTIMONIALS.map(
+        const visibleTestimonials = CONFIG.TESTIMONIALS.filter((item) => {
+          if (!CONFIG.ENABLE_MALE_SERVICES) {
+            if (item.serviceTag && item.serviceTag.toLowerCase().includes("masculino")) {
+              return false;
+            }
+          }
+          return true;
+        });
+
+        testimonialsGrid.innerHTML = visibleTestimonials.map(
           (item) => `
             <article class="bg-white rounded-3xl p-6 sm:p-7 border border-sand-200 shadow-sm hover:shadow-spa transition-all duration-300 flex flex-col justify-between">
               <div>
