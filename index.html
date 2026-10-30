@@ -13,7 +13,7 @@
   <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond (detalhes editoriais de spa) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -51,7 +51,8 @@
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif']
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif']
           },
           boxShadow: {
             'spa': '0 20px 50px -12px rgba(47, 72, 66, 0.08)',
@@ -225,182 +226,89 @@
   </header>
 
   <!-- =========================================================================
-       B. HERO SECTION (DOBRA PRINCIPAL DE ALTO IMPACTO)
+       B. HERO SECTION (ENTRADA ELEGANTE COM IMAGEM DE FUNDO & ESTÉTICA DE SPA)
        ========================================================================= -->
-  <section class="hero-mesh pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pb-28 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+  <section class="relative min-h-[88vh] flex items-center pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+    <!-- Imagem de Fundo com Overlay Editorial Suave -->
+    <div class="absolute inset-0 z-0">
+      <img
+        id="hero-bg-img"
+        src="./fotos/hero-bg-spa.jpg"
+        alt="Ambiente acolhedor de cuidado e depilação no conforto de casa"
+        class="w-full h-full object-cover object-center scale-[1.02] transition-transform duration-1000"
+      />
+      <!-- Gradiente envolvente que destaca a leitura à esquerda e preserva a beleza da foto à direita -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1D2D29]/95 via-[#1D2D29]/80 to-[#1D2D29]/35 sm:to-[#1D2D29]/25"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1D2D29]/85 via-transparent to-[#1D2D29]/30"></div>
+    </div>
 
-        <!-- Coluna de Texto (7 colunas no desktop) -->
-        <div class="lg:col-span-7 space-y-6 sm:space-y-8 reveal active">
-          <!-- Badge Superior -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-sage-50 border border-sage/15 text-sage text-xs sm:text-sm font-semibold shadow-sm">
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-cta animate-pulse"></span>
-            <span>📍 Atendimento Exclusivo no <span data-neighborhood-name>Condomínio & Vizinhança</span> • <strong class="underline decoration-amber-cta/70 underline-offset-2">Taxa de Deslocamento Zero</strong></span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="max-w-3xl space-y-6 sm:space-y-8 reveal active">
+        <!-- Badge Superior em Glassmorphism -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-100 text-xs sm:text-sm font-medium shadow-sm">
+          <span class="inline-block w-2 h-2 rounded-full bg-amber-cta animate-pulse"></span>
+          <span>📍 Atendimento Exclusivo no <strong class="text-white" data-neighborhood-name>Condomínio & Vizinhança</strong> • <span class="text-[#F3D299] font-semibold">Taxa de Deslocamento Zero</span></span>
+        </div>
+
+        <!-- Headline Elegante e Acolhedora -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12]">
+          O cuidado de um spa, na privacidade e <span class="font-serif italic font-semibold text-[#F3D299] text-[1.12em]">delicadeza do seu lar.</span>
+        </h1>
+
+        <!-- Subheadline Suave -->
+        <p class="text-base sm:text-lg lg:text-xl text-sand-100/90 leading-relaxed max-w-2xl font-normal">
+          Esqueça o trânsito e a correria de salão. Receba um atendimento exclusivo no conforto do seu próprio espaço, com cera morna de toque suave, rolo de lençol descartável e agendamento online em 1 minuto.
+        </p>
+
+        <!-- Botões Principais -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <!-- CTA 1: Ver Horários Livres na Agenda -->
+          <a href="#agenda" class="inline-flex items-center justify-center gap-3 bg-amber-cta hover:bg-amber-ctaHover text-white font-bold text-base px-8 py-4 rounded-2xl shadow-lg shadow-black/25 hover:shadow-xl transition-all duration-200 active:scale-[0.99]">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="M9 16l2 2 4-4"></path>
+            </svg>
+            <span>Ver Horários Livres na Agenda</span>
+          </a>
+
+          <!-- CTA 2: Chamar no WhatsApp -->
+          <button type="button" data-whatsapp-trigger class="inline-flex items-center justify-center gap-3 bg-white/12 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 hover:border-white/40 font-semibold text-base px-7 py-4 rounded-2xl shadow-sm transition-all duration-200 active:scale-[0.99]">
+            <svg class="w-5 h-5 text-emerald-cta shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.581 5.714-1.499c1.693.924 3.631 1.451 5.694 1.451 6.627 0 12-5.373 12-12s-5.381-12.392-11.408-12.392z"/>
+            </svg>
+            <span>Chamar no WhatsApp</span>
+          </button>
+        </div>
+
+        <!-- 3 Destaques Elegantes em Glassmorphism na Base -->
+        <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-2xl">
+          <div class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span class="w-8 h-8 rounded-xl bg-amber-cta/25 text-[#F3D299] flex items-center justify-center shrink-0 font-bold text-sm">✦</span>
+            <div>
+              <p class="text-xs font-bold text-white leading-tight">100% Cera Descartável</p>
+              <p class="text-[11px] text-sand-200/80 mt-0.5">Toque morno e delicado</p>
+            </div>
           </div>
 
-          <!-- Headline Forte -->
-          <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-charcoal tracking-tight leading-[1.12]">
-            A estrutura de uma <span class="text-sage relative inline-block">clínica de depilação
-              <svg class="absolute -bottom-1.5 left-0 w-full h-2 text-amber-cta/40" viewBox="0 0 200 8" preserveAspectRatio="none">
-                <path d="M0 5 Q 100 0 200 5" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
-              </svg>
-            </span> dentro do seu apartamento.
-          </h1>
-
-          <!-- Subheadline -->
-          <p class="text-base sm:text-lg lg:text-xl text-charcoal-muted leading-relaxed max-w-2xl font-normal">
-            Atendimento com todo o conforto no seu próprio espaço, com rolo de lençol em papel descartável e kit 100% individual aberto na sua frente. Você não sai de casa e agenda online em 1 minuto.
-          </p>
-
-          <!-- Botões Principais -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-            <!-- CTA 1: Ver Horários Livres na Agenda -->
-            <a href="#agenda" class="inline-flex items-center justify-center gap-3 bg-amber-cta hover:bg-amber-ctaHover text-white font-bold text-base px-7 py-4 rounded-2xl shadow-lg shadow-amber-cta/25 hover:shadow-xl hover:shadow-amber-cta/30 transition-all duration-200 active:scale-[0.99]">
-              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-                <path d="M9 16l2 2 4-4"></path>
-              </svg>
-              <span>Ver Horários Livres na Agenda</span>
-            </a>
-
-            <!-- CTA 2: Chamar no WhatsApp -->
-            <button type="button" data-whatsapp-trigger class="inline-flex items-center justify-center gap-3 bg-white hover:bg-sage-50 text-sage border-2 border-sage/20 hover:border-sage font-bold text-base px-6 py-4 rounded-2xl shadow-sm transition-all duration-200 active:scale-[0.99]">
-              <svg class="w-5 h-5 text-emerald-cta shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.581 5.714-1.499c1.693.924 3.631 1.451 5.694 1.451 6.627 0 12-5.373 12-12s-5.381-12.392-11.408-12.392z"/>
-              </svg>
-              <span>Chamar no WhatsApp</span>
-            </button>
+          <div class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span class="w-8 h-8 rounded-xl bg-amber-cta/25 text-[#F3D299] flex items-center justify-center shrink-0 font-bold text-sm">✦</span>
+            <div>
+              <p class="text-xs font-bold text-white leading-tight">Lençol Descartável</p>
+              <p class="text-[11px] text-sand-200/80 mt-0.5">Higiene no seu espaço</p>
+            </div>
           </div>
 
-          <!-- Micro-prova social / Confiança -->
-          <div class="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-charcoal-muted">
-            <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
-              <span data-gender-badge>Atendimento Feminino Exclusivo</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
-              <span>Rolo de lençol em papel descartável</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
-              <span>Cera morna de alta elasticidade</span>
+          <div class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span class="w-8 h-8 rounded-xl bg-amber-cta/25 text-[#F3D299] flex items-center justify-center shrink-0 font-bold text-sm">✦</span>
+            <div>
+              <p class="text-xs font-bold text-white leading-tight" data-gender-badge>Atendimento Feminino</p>
+              <p class="text-[11px] text-sand-200/80 mt-0.5">Pontualidade & conforto</p>
             </div>
           </div>
         </div>
-
-        <!-- Card Visual ao Lado (5 colunas no desktop) -->
-        <div class="lg:col-span-5 reveal reveal-delay-1">
-          <div class="relative bg-white rounded-3xl p-6 sm:p-8 shadow-spa border border-sage/10 overflow-hidden">
-            <!-- Faixa decorativa superior -->
-            <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-sage via-sage-light to-amber-cta"></div>
-
-            <!-- Cabeçalho do Card Visual -->
-            <div class="flex items-center justify-between pb-5 mb-6 border-b border-sand-200">
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-widest text-amber-cta">Padrão Clínico em Casa</span>
-                <h2 class="text-lg sm:text-xl font-bold text-charcoal mt-0.5">Atendimento Confortável no Seu Lar</h2>
-              </div>
-              <div class="w-11 h-11 rounded-2xl bg-sage-50 border border-sage/15 flex items-center justify-center text-sage">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Ilustração Visual de Setup Home Care (Diagrama Minimalista de Spa) -->
-            <div class="bg-sand rounded-2xl p-4 mb-6 border border-sand-200/80 relative">
-              <div class="grid grid-cols-3 gap-2.5 text-center">
-                <div class="bg-white p-3 rounded-xl border border-sage/10 shadow-sm">
-                  <div class="w-8 h-8 mx-auto mb-1.5 rounded-lg bg-sage text-amber-cta flex items-center justify-center">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                    </svg>
-                  </div>
-                  <p class="text-[11px] font-bold text-charcoal leading-tight">Cera Morna</p>
-                  <p class="text-[10px] text-charcoal-muted mt-0.5">Baixa fusão</p>
-                </div>
-
-                <div class="bg-white p-3 rounded-xl border border-sage/10 shadow-sm">
-                  <div class="w-8 h-8 mx-auto mb-1.5 rounded-lg bg-sage text-amber-cta flex items-center justify-center">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                    </svg>
-                  </div>
-                  <p class="text-[11px] font-bold text-charcoal leading-tight">No Seu Espaço</p>
-                  <p class="text-[10px] text-charcoal-muted mt-0.5">Conforto total</p>
-                </div>
-
-                <div class="bg-white p-3 rounded-xl border border-sage/10 shadow-sm">
-                  <div class="w-8 h-8 mx-auto mb-1.5 rounded-lg bg-sage text-amber-cta flex items-center justify-center">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
-                  </div>
-                  <p class="text-[11px] font-bold text-charcoal leading-tight">Lençol em Rolo</p>
-                  <p class="text-[10px] text-charcoal-muted mt-0.5">100% descartável</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- 3 Selos Rápidos Obrigatórios -->
-            <div class="space-y-3">
-              <!-- Selo 1 -->
-              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-sage-50/70 border border-sage/15 hover:bg-sage-50 transition-colors">
-                <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-sm font-bold text-charcoal">100% Cera Descartável</h3>
-                  <p class="text-xs text-charcoal-muted">Espátulas, luvas e consumíveis abertos na sua presença.</p>
-                </div>
-              </div>
-
-              <!-- Selo 2 -->
-              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-sage-50/70 border border-sage/15 hover:bg-sage-50 transition-colors">
-                <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-sm font-bold text-charcoal">Lençol em Rolo Descartável</h3>
-                  <p class="text-xs text-charcoal-muted">Higienização e proteção com troca de lençol a cada atendimento.</p>
-                </div>
-              </div>
-
-              <!-- Selo 3 -->
-              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-sage-50/70 border border-sage/15 hover:bg-sage-50 transition-colors">
-                <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-sm font-bold text-charcoal">Pontualidade Britânica</h3>
-                  <p class="text-xs text-charcoal-muted">Por estarmos no mesmo condomínio/bairro, sem atrasos de trânsito.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Rodapé do Card -->
-            <div class="mt-6 pt-4 border-t border-sand-200 flex items-center justify-between text-xs text-charcoal-muted">
-              <span class="font-medium">Atendimento no seu espaço com <strong class="text-sage">total conforto</strong></span>
-              <span class="inline-flex items-center gap-1 text-emerald-ctaDark font-bold">
-                <span class="w-2 h-2 rounded-full bg-emerald-cta"></span>
-                Agenda Aberta
-              </span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
