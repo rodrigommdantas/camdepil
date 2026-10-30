@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Home Care | Depilação Profissional no Seu Condomínio</title>
+  <meta name="description" content="A estrutura de uma clínica de depilação dentro do seu apartamento. Maca portátil profissional, proteção total de piso e kit 100% descartável. Taxa de deslocamento zero no condomínio e vizinhança." />
+  <meta name="theme-color" content="#2F4842" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond (detalhes editoriais de spa) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: {
+              DEFAULT: '#FAF9F6',
+              100: '#F4F1EA',
+              200: '#EAE5D9',
+              300: '#DDD5C4'
+            },
+            sage: {
+              DEFAULT: '#2F4842',
+              light: '#3E5E56',
+              dark: '#223530',
+              50: '#F2F6F5',
+              100: '#E1ECE9',
+              200: '#C3D9D3'
+            },
+            charcoal: {
+              DEFAULT: '#2C3539',
+              muted: '#5A656A'
+            },
+            amber: {
+              cta: '#C89B4B',
+              ctaHover: '#B5893B',
+              soft: '#FBF6EC'
+            },
+            emerald: {
+              cta: '#10B981',
+              ctaDark: '#059669'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif']
+          },
+          boxShadow: {
+            'spa': '0 20px 50px -12px rgba(47, 72, 66, 0.08)',
+            'spa-hover': '0 24px 60px -12px rgba(47, 72, 66, 0.15)',
+            'float': '0 16px 40px -8px rgba(44, 53, 57, 0.22)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Estilos Customizados & Micro-interações */
+    body {
+      background-color: #FAF9F6;
+      color: #2C3539;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Glassmorphism Header */
+    .glass-header {
+      background: rgba(250, 249, 246, 0.86);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(47, 72, 66, 0.08);
+    }
+
+    /* Animações de Scroll (Reveal) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Cards de Serviço Selecionáveis */
+    .service-card {
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+    .service-card.selected {
+      border-color: #2F4842;
+      background-color: #F2F6F5;
+      box-shadow: 0 16px 35px -10px rgba(47, 72, 66, 0.14);
+    }
+
+    /* Acordeão FAQ */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    .faq-item.open .faq-answer {
+      opacity: 1;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+      background-color: #2F4842;
+      color: #FAF9F6;
+    }
+
+    /* Sutil textura clínica / gradiente orgânico */
+    .hero-mesh {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(47, 72, 66, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 10% 80%, rgba(200, 155, 75, 0.08) 0%, transparent 40%),
+        #FAF9F6;
+    }
+
+    /* Scrollbar elegante */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF9F6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C3D9D3;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2F4842;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-sage selection:text-white">
+
+  <!-- =========================================================================
+       A. HEADER FIXO (GLASSMORPHISM)
+       ========================================================================= -->
+  <header id="main-header" class="glass-header fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo Minimalista -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-sage text-sand flex items-center justify-center shadow-sm group-hover:bg-sage-light transition-colors">
+          <!-- Ícone Folha / Spa Clínico -->
+          <svg class="w-5 h-5 text-amber-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span data-brand-title class="font-bold text-base sm:text-lg tracking-tight text-sage leading-none">
+            Studio Home Care
+          </span>
+          <span data-brand-subtitle class="text-[11px] uppercase tracking-widest text-charcoal-muted font-medium mt-1">
+            Depilação Profissional
+          </span>
+        </div>
+      </a>
+
+      <!-- Links Rápidos Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-charcoal">
+        <a href="#como-funciona" class="hover:text-sage transition-colors py-1">Como Funciona</a>
+        <a href="#servicos" class="hover:text-sage transition-colors py-1 flex items-center gap-1.5">
+          Serviços & Combos
+          <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-sage-100 text-sage rounded-full">Simulador</span>
+        </a>
+        <a href="#depoimentos" class="hover:text-sage transition-colors py-1">Depoimentos</a>
+        <a href="#agenda" class="hover:text-sage transition-colors py-1">Agenda Online</a>
+        <a href="#duvidas" class="hover:text-sage transition-colors py-1">Dúvidas</a>
+      </nav>
+
+      <!-- CTA Direita + Botão Mobile -->
+      <div class="flex items-center gap-3">
+        <a href="#agenda" class="hidden sm:inline-flex items-center gap-2 bg-sage hover:bg-sage-light text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow transition-all duration-200 active:scale-[0.98]">
+          <svg class="w-4 h-4 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Agendar Horário</span>
+        </a>
+
+        <!-- Botão Menu Mobile -->
+        <button id="mobile-menu-btn" type="button" aria-label="Abrir Menu" class="md:hidden p-2.5 rounded-xl border border-sage/15 text-sage hover:bg-sage-50 transition-colors">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-sage/10 bg-sand/95 backdrop-blur-lg px-4 pt-3 pb-6 space-y-2 shadow-lg">
+      <a href="#como-funciona" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal hover:bg-sage-50 hover:text-sage">Como Funciona</a>
+      <a href="#servicos" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal hover:bg-sage-50 hover:text-sage">Menu de Serviços & Simulador</a>
+      <a href="#depoimentos" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal hover:bg-sage-50 hover:text-sage">Fotos & Depoimentos</a>
+      <a href="#agenda" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal hover:bg-sage-50 hover:text-sage">Agenda Online</a>
+      <a href="#duvidas" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-charcoal hover:bg-sage-50 hover:text-sage">Dúvidas Frequentes (FAQ)</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="#agenda" class="mobile-nav-link w-full inline-flex items-center justify-center gap-2 bg-sage text-white text-sm font-semibold px-4 py-3 rounded-xl shadow-sm">
+          <span>Ver Horários Livres na Agenda</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       B. HERO SECTION (DOBRA PRINCIPAL DE ALTO IMPACTO)
+       ========================================================================= -->
+  <section class="hero-mesh pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pb-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+        <!-- Coluna de Texto (7 colunas no desktop) -->
+        <div class="lg:col-span-7 space-y-6 sm:space-y-8 reveal active">
+          <!-- Badge Superior -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-sage-50 border border-sage/15 text-sage text-xs sm:text-sm font-semibold shadow-sm">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-cta animate-pulse"></span>
+            <span>📍 Atendimento Exclusivo no <span data-neighborhood-name>Condomínio & Vizinhança</span> • <strong class="underline decoration-amber-cta/70 underline-offset-2">Taxa de Deslocamento Zero</strong></span>
+          </div>
+
+          <!-- Headline Forte -->
+          <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-charcoal tracking-tight leading-[1.12]">
+            A estrutura de uma <span class="text-sage relative inline-block">clínica de depilação
+              <svg class="absolute -bottom-1.5 left-0 w-full h-2 text-amber-cta/40" viewBox="0 0 200 8" preserveAspectRatio="none">
+                <path d="M0 5 Q 100 0 200 5" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </span> dentro do seu apartamento.
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-base sm:text-lg lg:text-xl text-charcoal-muted leading-relaxed max-w-2xl font-normal">
+            Maca portátil profissional, proteção total de piso e kit 100% descartável aberto na sua frente. Você não sai de casa, não suja nada e agenda online em 1 minuto.
+          </p>
+
+          <!-- Botões Principais -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+            <!-- CTA 1: Ver Horários Livres na Agenda -->
+            <a href="#agenda" class="inline-flex items-center justify-center gap-3 bg-amber-cta hover:bg-amber-ctaHover text-white font-bold text-base px-7 py-4 rounded-2xl shadow-lg shadow-amber-cta/25 hover:shadow-xl hover:shadow-amber-cta/30 transition-all duration-200 active:scale-[0.99]">
+              <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <path d="M9 16l2 2 4-4"></path>
+              </svg>
+              <span>Ver Horários Livres na Agenda</span>
+            </a>
+
+            <!-- CTA 2: Chamar no WhatsApp -->
+            <button type="button" data-whatsapp-trigger class="inline-flex items-center justify-center gap-3 bg-white hover:bg-sage-50 text-sage border-2 border-sage/20 hover:border-sage font-bold text-base px-6 py-4 rounded-2xl shadow-sm transition-all duration-200 active:scale-[0.99]">
+              <svg class="w-5 h-5 text-emerald-cta shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.581 5.714-1.499c1.693.924 3.631 1.451 5.694 1.451 6.627 0 12-5.373 12-12s-5.381-12.392-11.408-12.392z"/>
+              </svg>
+              <span>Chamar no WhatsApp</span>
+            </button>
+          </div>
+
+          <!-- Micro-prova social / Confiança -->
+          <div class="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm text-charcoal-muted">
+            <div class="flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
+              <span>Atendimento Feminino & Masculino</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
+              <span>Zero sujeira no seu piso</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-sage-100 text-sage flex items-center justify-center font-bold text-xs">✓</span>
+              <span>Cera morna de alta elasticidade</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Visual ao Lado (5 colunas no desktop) -->
+        <div class="lg:col-span-5 reveal reveal-delay-1">
+          <div class="relative bg-white rounded-3xl p-6 sm:p-8 shadow-spa border border-sage/10 overflow-hidden">
+            <!-- Faixa decorativa superior -->
+            <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-sage via-sage-light to-amber-cta"></div>
+
+            <!-- Cabeçalho do Card Visual -->
+            <div class="flex items-center justify-between pb-5 mb-6 border-b border-sand-200">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-amber-cta">Padrão Clínico em Casa</span>
+                <h2 class="text-lg sm:text-xl font-bold text-charcoal mt-0.5">Setup Portátil Completo</h2>
+              </div>
+              <div class="w-11 h-11 rounded-2xl bg-sage-50 border border-sage/15 flex items-center justify-center text-sage">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Ilustração Visual de Setup Home Care (Diagrama Minimalista de Spa) -->
+            <div class="bg-sand rounded-2xl p-4 mb-6 border border-sand-200/80 relative">
+              <div class="grid grid-cols-3 gap-2.5 text-center">
+                <div class="bg-white p-3 rounded-xl border border-sage/10 shadow-sm">
+                  <div class="w-8 h-8 mx-auto mb-1.5 rounded-lg bg-sage text-amber-cta flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                    </svg>
+                  </div>
+                  <p class="text-[11px] font-bold text-charcoal leading-tight">Cera Morna</p>
+                  <p class="text-[10px] text-charcoal-muted mt-0.5">Baixa fusão</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-sage/10 shadow-sm">
+                  <div class="w-8 h-8 mx-auto mb-1.5 rounded-lg bg-sage text-amber-cta flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <rect x="2" y="7" width="20" height="10" rx="2"></rect>
+                      <path d="M5 17v3M19 17v3M2 12h20"></path>
+                    </svg>
+                  </div>
+                  <p class="text-[11px] font-bold text-charcoal leading-tight">Espaço 2x1,5m</p>
+                  <p class="text-[10px] text-charcoal-muted mt-0.5">Maca própria</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-xl border border-sage/10 shadow-sm">
+                  <div class="w-8 h-8 mx-auto mb-1.5 rounded-lg bg-sage text-amber-cta flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <p class="text-[11px] font-bold text-charcoal leading-tight">Piso Protegido</p>
+                  <p class="text-[10px] text-charcoal-muted mt-0.5">Tapete isolante</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Selos Rápidos Obrigatórios -->
+            <div class="space-y-3">
+              <!-- Selo 1 -->
+              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-sage-50/70 border border-sage/15 hover:bg-sage-50 transition-colors">
+                <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-charcoal">100% Cera Descartável</h3>
+                  <p class="text-xs text-charcoal-muted">Espátulas, lençol TNT e consumíveis abertos na sua presença.</p>
+                </div>
+              </div>
+
+              <!-- Selo 2 -->
+              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-sage-50/70 border border-sage/15 hover:bg-sage-50 transition-colors">
+                <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-charcoal">Maca Portátil Inclusa</h3>
+                  <p class="text-xs text-charcoal-muted">Conforto ergonômico sem usar sua cama, sofá ou toalhas.</p>
+                </div>
+              </div>
+
+              <!-- Selo 3 -->
+              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-sage-50/70 border border-sage/15 hover:bg-sage-50 transition-colors">
+                <div class="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-charcoal">Pontualidade Britânica</h3>
+                  <p class="text-xs text-charcoal-muted">Por estarmos no mesmo condomínio/bairro, sem atrasos de trânsito.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rodapé do Card -->
+            <div class="mt-6 pt-4 border-t border-sand-200 flex items-center justify-between text-xs text-charcoal-muted">
+              <span class="font-medium">Tempo de montagem do setup: <strong class="text-sage">3 minutos</strong></span>
+              <span class="inline-flex items-center gap-1 text-emerald-ctaDark font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-cta"></span>
+                Agenda Aberta
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       C. COMO FUNCIONA EM 3 PASSOS
+       ========================================================================= -->
+  <section id="como-funciona" class="py-20 sm:py-24 bg-sand border-t border-sand-200 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16 reveal">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-sage bg-sage-100 px-3.5 py-1.5 rounded-full mb-3">
+          Praticidade Absoluta
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
+          Como Funciona em 3 Passos
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-charcoal-muted">
+          Sem burocracia e sem deslocamento. Do agendamento ao pós-depilatório, tudo pensado para sua comodidade.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Linha Conectora Desktop -->
+        <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-sage/20 via-amber-cta/50 to-sage/20 pointer-events-none"></div>
+
+        <!-- Passo 1 -->
+        <div class="reveal relative bg-white rounded-3xl p-8 border border-sand-200 shadow-sm hover:shadow-spa transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-sage text-white font-extrabold text-xl flex items-center justify-center mb-6 shadow-md relative z-10 border-4 border-sand">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-charcoal mb-3">Escolha seu horário online</h3>
+          <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed">
+            Agenda integrada ao Google em tempo real, sem esperar resposta. Escolha o melhor dia e horário em poucos cliques.
+          </p>
+          <div class="mt-5 pt-4 border-t border-sand-100 flex items-center gap-2 text-xs font-semibold text-sage">
+            <svg class="w-4 h-4 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            <span>Confirmação imediata na sua agenda</span>
+          </div>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="reveal reveal-delay-1 relative bg-white rounded-3xl p-8 border border-sand-200 shadow-sm hover:shadow-spa transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-sage text-white font-extrabold text-xl flex items-center justify-center mb-6 shadow-md relative z-10 border-4 border-sand">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-charcoal mb-3">Prepare apenas um pequeno espaço</h3>
+          <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed">
+            Espaço de <strong>2m x 1,5m</strong> próximo a uma tomada e pré-liberação na portaria para subirmos no horário exato.
+          </p>
+          <div class="mt-5 pt-4 border-t border-sand-100 flex items-center gap-2 text-xs font-semibold text-sage">
+            <svg class="w-4 h-4 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            <span>Sala, quarto, escritório ou varanda fechada</span>
+          </div>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="reveal reveal-delay-2 relative bg-white rounded-3xl p-8 border border-sand-200 shadow-sm hover:shadow-spa transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-sage text-white font-extrabold text-xl flex items-center justify-center mb-6 shadow-md relative z-10 border-4 border-sand">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-charcoal mb-3">Sessão rápida com protocolo menos dor</h3>
+          <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed">
+            Higienização prévia, cera morna de alta elasticidade (extração pela raiz sem quebrar o pelo) e gel calmante pós-depilação.
+          </p>
+          <div class="mt-5 pt-4 border-t border-sand-100 flex items-center gap-2 text-xs font-semibold text-sage">
+            <svg class="w-4 h-4 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+            <span>Pele macia, hidratada e sem irritação</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       E. MENU DE SERVIÇOS INTERATIVO (COM ABAS DE FILTRO + SIMULADOR DE COMBO)
+       ========================================================================= -->
+  <section id="servicos" class="py-20 sm:py-24 bg-white border-t border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Cabeçalho -->
+      <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-12 reveal">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-sage bg-sage-50 px-3.5 py-1.5 rounded-full border border-sage/15 mb-3">
+          Menu Clínico & Simulador Inteligente
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
+          Escolha seus Serviços ou Monte seu Combo
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-charcoal-muted">
+          Toque em um ou mais serviços abaixo para simular automaticamente o <strong>tempo de sessão</strong> e o <strong>investimento total</strong>.
+        </p>
+      </div>
+
+      <!-- Abas de Filtro -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 reveal" role="tablist" aria-label="Categorias de Serviços">
+        <button type="button" data-filter-tab="all" class="filter-tab active-tab px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-sage text-white shadow-sm">
+          Todos
+        </button>
+        <button type="button" data-filter-tab="masculino" class="filter-tab px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-sand text-charcoal hover:bg-sage-50 border border-sand-200">
+          Masculino & Esportivo
+        </button>
+        <button type="button" data-filter-tab="feminino" class="filter-tab px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-sand text-charcoal hover:bg-sage-50 border border-sand-200">
+          Feminino
+        </button>
+        <button type="button" data-filter-tab="combos" class="filter-tab px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-sand text-charcoal hover:bg-sage-50 border border-sand-200">
+          Combos VIP
+        </button>
+      </div>
+
+      <!-- Grid Dinâmico de Serviços (Renderizado via JavaScript a partir do CONFIG) -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards injetados pelo script -->
+      </div>
+
+      <!-- Aviso Discreto de Valor Mínimo Home Care -->
+      <div class="mt-8 bg-amber-soft/80 border border-amber-cta/30 rounded-2xl p-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm text-charcoal">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-xl bg-amber-cta/20 text-amber-ctaHover flex items-center justify-center shrink-0 font-bold">i</span>
+          <p>
+            <strong>Política de Atendimento Home Care:</strong> Para deslocamento da estrutura clínica completa (maca portátil + kit descartável), trabalhamos com valor mínimo por visita de <strong id="min-order-value-display" class="text-sage">R$ 90,00</strong>. Você pode combinar áreas avulsas livremente!
+          </p>
+        </div>
+        <button type="button" id="clear-selection-btn" class="hidden text-xs font-bold text-sage underline hover:text-sage-light shrink-0">
+          Limpar seleção
+        </button>
+      </div>
+
+      <!-- Resumo Inteligente Inline da Seção -->
+      <div id="combo-summary-inline" class="mt-8 bg-sage text-white rounded-3xl p-6 sm:p-8 shadow-spa transition-all duration-300">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-cta text-white" id="summary-count-badge">0 selecionados</span>
+              <span class="text-xs uppercase tracking-widest text-sage-200 font-semibold">Simulador de Sessão</span>
+            </div>
+            <h3 id="summary-title" class="text-lg sm:text-xl font-bold">
+              Selecione um ou mais serviços acima para calcular sua sessão
+            </h3>
+            <p id="summary-items-list" class="text-xs sm:text-sm text-sage-100/90">
+              Taxa de deslocamento: R$ 0,00 (Isento para o condomínio e vizinhança parceira)
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/15">
+            <div class="flex items-center justify-between sm:justify-start gap-6">
+              <div>
+                <span class="block text-[11px] uppercase tracking-wider text-sage-200">Duração Estimada</span>
+                <span id="summary-duration" class="text-xl sm:text-2xl font-extrabold text-white">0 min</span>
+              </div>
+              <div class="h-8 w-px bg-white/15"></div>
+              <div>
+                <span class="block text-[11px] uppercase tracking-wider text-sage-200">Total Estimado</span>
+                <span id="summary-price" class="text-xl sm:text-2xl font-extrabold text-amber-cta">R$ 0,00</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <button type="button" id="schedule-selected-btn" class="inline-flex items-center justify-center gap-2 bg-amber-cta hover:bg-amber-ctaHover text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-2xl shadow-lg transition-all active:scale-[0.98]">
+                <span>Agendar Serviços Selecionados</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       E2. PROVA SOCIAL: GALERIA DE FOTOS DO SETUP & DEPOIMENTOS DE MORADORES
+       ========================================================================= -->
+  <section id="depoimentos" class="py-20 sm:py-24 bg-sand border-t border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Cabeçalho da Seção -->
+      <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-sage/15 shadow-sm mb-4">
+          <div class="flex items-center text-amber-cta text-sm" aria-label="Nota 5 de 5 estrelas">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="text-xs font-bold text-sage uppercase tracking-wider">
+            5.0 de Satisfação • <span data-neighborhood-name>Nosso Condomínio & Vizinhança</span>
+          </span>
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
+          Por Dentro do Atendimento & Quem Já Recomenda
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-charcoal-muted">
+          Veja como montamos nossa estrutura clínica no seu apartamento em 3 minutos e o que seus vizinhos dizem sobre a experiência.
+        </p>
+      </div>
+
+      <!-- BLOCO 1: Galeria Fotográfica "Por Dentro do Atendimento" -->
+      <div class="mb-16 reveal">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-ctaHover">Galeria Real & Padrão Clínico</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-charcoal mt-0.5">
+              Cuidado nos mínimos detalhes na sua casa
+            </h3>
+          </div>
+          <p class="text-xs sm:text-sm text-charcoal-muted">
+            🔍 Toque em qualquer foto para ampliar
+          </p>
+        </div>
+
+        <!-- Grid de Fotos Renderizado via JS (CONFIG.GALLERY_PHOTOS) -->
+        <div id="photo-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Cards de foto injetados via JS -->
+        </div>
+      </div>
+
+      <!-- BLOCO 2: Depoimentos Verificados de Moradores -->
+      <div class="reveal">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-sage">Avaliações Verificadas</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-charcoal mt-0.5">
+              O que dizem os moradores atendidos
+            </h3>
+          </div>
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-sage bg-sage-50 px-3.5 py-2 rounded-xl border border-sage/15">
+            <span class="w-2 h-2 rounded-full bg-emerald-cta"></span>
+            <span>98% dos clientes re-agendam mensalmente</span>
+          </div>
+        </div>
+
+        <!-- Grid de Depoimentos Renderizado via JS (CONFIG.TESTIMONIALS) -->
+        <div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Cards de depoimentos injetados via JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       F. SEÇÃO DE AGENDAMENTO INTEGRADO (GOOGLE AGENDA DO GOOGLE ONE)
+       ========================================================================= -->
+  <section id="agenda" class="py-20 sm:py-24 bg-white border-t border-sand-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Cabeçalho -->
+      <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-14 reveal">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-sage bg-sage-100 px-3.5 py-1.5 rounded-full mb-3">
+          Agendamento Online em Tempo Real
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
+          Reserve seu Horário em 1 Minuto
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-charcoal-muted">
+          Consulte os horários disponíveis na agenda ao vivo ou abra diretamente no seu celular.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Container do Google Agenda (8 colunas no desktop) -->
+        <div class="lg:col-span-8 bg-white rounded-3xl shadow-spa border border-sage/15 overflow-hidden reveal">
+          <!-- Barra de Topo Estilo App Clínico -->
+          <div class="bg-sage px-6 py-4 flex flex-wrap items-center justify-between gap-3 text-white">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-emerald-cta animate-pulse"></span>
+              <div>
+                <h3 class="text-sm sm:text-base font-bold leading-tight">Agenda Oficial • Google Calendar</h3>
+                <p class="text-xs text-sage-200">Horários sincronizados em tempo real</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <a data-calendar-external-link href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold bg-white/15 hover:bg-white/25 text-white px-3.5 py-2 rounded-xl transition-colors">
+                <span>Abrir em Nova Aba</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Resumo dos Serviços Selecionados dentro da Agenda (Aparece quando há itens selecionados) -->
+          <div id="agenda-selected-banner" class="hidden bg-sage-50 border-b border-sage/15 px-6 py-3.5 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+            <div class="flex items-center gap-2 text-sage font-medium">
+              <span class="font-bold">✓ Combo selecionado:</span>
+              <span id="agenda-banner-items" class="text-charcoal font-semibold"></span>
+            </div>
+            <div class="font-bold text-sage" id="agenda-banner-meta"></div>
+          </div>
+
+          <!-- Área do Iframe do Google Agenda / Fallback Inteligente -->
+          <div class="relative w-full min-h-[540px] bg-sand/50 flex flex-col justify-center">
+            <!-- Iframe Real do Google Calendar Appointments -->
+            <iframe
+              id="google-calendar-iframe"
+              title="Agendamento de Horários Google Agenda"
+              class="w-full h-[580px] border-0 hidden"
+              loading="lazy"
+            ></iframe>
+
+            <!-- Estado Visual Elegante (exibido enquanto SEU_LINK_AQUI não foi trocado ou para abrir no mobile) -->
+            <div id="calendar-fallback-card" class="p-6 sm:p-10 text-center max-w-xl mx-auto space-y-6">
+              <div class="w-16 h-16 rounded-2xl bg-sage-50 border border-sage/15 text-sage mx-auto flex items-center justify-center shadow-sm">
+                <svg class="w-8 h-8 text-amber-cta" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                  <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"></path>
+                </svg>
+              </div>
+
+              <div class="space-y-2">
+                <span class="inline-block px-3 py-1 rounded-full bg-emerald-cta/10 text-emerald-ctaDark text-xs font-bold">
+                  Atendimento Segunda a Sábado • 08h às 20h
+                </span>
+                <h4 class="text-xl sm:text-2xl font-extrabold text-charcoal">
+                  Acesse os Horários Disponíveis
+                </h4>
+                <p class="text-sm sm:text-base text-charcoal-muted leading-relaxed">
+                  Escolha o melhor horário na nossa página oficial do <strong>Google Agenda</strong> ou finalize sua reserva diretamente pelo WhatsApp com seu combo já preenchido.
+                </p>
+              </div>
+
+              <!-- Prévia de Slots para Visual de Clínica -->
+              <div class="grid grid-cols-3 gap-2.5 max-w-md mx-auto text-xs">
+                <div class="p-2.5 rounded-xl bg-white border border-sage/15 text-charcoal">
+                  <span class="block font-bold text-sage">Manhã</span>
+                  <span class="text-charcoal-muted">08:30 • 10:00</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white border border-sage/15 text-charcoal">
+                  <span class="block font-bold text-sage">Tarde</span>
+                  <span class="text-charcoal-muted">14:00 • 16:30</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white border border-sage/15 text-charcoal">
+                  <span class="block font-bold text-sage">Noite</span>
+                  <span class="text-charcoal-muted">18:30 • 19:30</span>
+                </div>
+              </div>
+
+              <!-- Botões Principais da Agenda -->
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <a data-calendar-external-link href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-sage hover:bg-sage-light text-white font-bold text-sm sm:text-base px-6 py-4 rounded-2xl shadow-md transition-all">
+                  <svg class="w-5 h-5 text-amber-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>Abrir Agenda do Google</span>
+                </a>
+
+                <button type="button" data-whatsapp-trigger class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-cta hover:bg-emerald-ctaDark text-white font-bold text-sm sm:text-base px-6 py-4 rounded-2xl shadow-md transition-all">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.581 5.714-1.499c1.693.924 3.631 1.451 5.694 1.451 6.627 0 12-5.373 12-12s-5.381-12.392-11.408-12.392z"/>
+                  </svg>
+                  <span>Agendar via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rodapé do Container da Agenda -->
+          <div class="bg-white border-t border-sand-200 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-charcoal-muted">
+            <span>Prefere abrir a agenda em tela cheia no celular?</span>
+            <button type="button" id="open-calendar-modal-btn" class="font-bold text-sage hover:underline inline-flex items-center gap-1">
+              <span>Abrir Modal Seguro de Agendamento</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Checklist Rápido ao Lado (4 colunas no desktop) -->
+        <div class="lg:col-span-4 space-y-6 reveal reveal-delay-1">
+          <div class="bg-white rounded-3xl p-7 shadow-spa border border-sage/15">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-xl bg-amber-soft border border-amber-cta/30 text-amber-ctaHover flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-ctaHover">Preparo Ideal</span>
+                <h3 class="text-lg font-bold text-charcoal">Lembrete rápido antes da sessão</h3>
+              </div>
+            </div>
+
+            <!-- Destaque Principal Obrigatório -->
+            <div class="p-4 rounded-2xl bg-sage-50 border border-sage/15 mb-5">
+              <p class="text-sm font-semibold text-sage leading-relaxed">
+                “Lembrete rápido antes da sessão: Pelos com mínimo de <strong>0,5cm (15 dias sem lâmina)</strong> e <strong>pele limpa sem óleos/cremes</strong> no dia.”
+              </p>
+            </div>
+
+            <!-- Checklist Itemizado -->
+            <ul class="space-y-3.5 text-sm text-charcoal">
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-sage text-white text-xs flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                <span><strong>Comprimento ideal (0,5 cm):</strong> Garante que a cera envolva o pelo por completo e extraia desde a raiz na primeira passada.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-sage text-white text-xs flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                <span><strong>Zero cremes ou óleos no dia:</strong> A pele seca permite aderência perfeita da cera morna e reduz qualquer desconforto.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-sage text-white text-xs flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                <span><strong>Tomada próxima (110v/220v):</strong> Nosso aquecedor profissional é bivolt e conta com extensão própria.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-sage text-white text-xs flex items-center justify-center shrink-0 mt-0.5">✓</span>
+                <span><strong>Roupas leves pós-sessão:</strong> Recomendamos peças de algodão soltinhas logo após o procedimento.</span>
+              </li>
+            </ul>
+
+            <div class="mt-6 pt-5 border-t border-sand-200">
+              <div class="flex items-center justify-between text-xs text-charcoal-muted mb-2">
+                <span>Formas de pagamento aceitas:</span>
+                <span class="font-bold text-sage">Pix • Cartão • Dinheiro</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       G. FAQ (PERGUNTAS FREQUENTES EM ACORDEÃO INTERATIVO)
+       ========================================================================= -->
+  <section id="duvidas" class="py-20 sm:py-24 bg-white border-t border-sand-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-14 reveal">
+        <span class="inline-block text-xs font-bold uppercase tracking-widest text-sage bg-sage-50 px-3.5 py-1.5 rounded-full border border-sage/15 mb-3">
+          Tire Suas Dúvidas
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
+          Perguntas Frequentes
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-charcoal-muted">
+          Tudo o que você precisa saber sobre nosso atendimento de depilação profissional Home Care.
+        </p>
+      </div>
+
+      <!-- Lista Acordeão -->
+      <div class="space-y-4 reveal" id="faq-container">
+        <!-- FAQ 1: Tamanho ideal do pelo -->
+        <div class="faq-item open bg-sand rounded-2xl border border-sand-200 overflow-hidden transition-all">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-charcoal">1. Qual é o tamanho ideal do pelo para fazer a depilação?</span>
+            <span class="faq-icon w-8 h-8 rounded-full bg-sage-100 text-sage flex items-center justify-center shrink-0 transition-all duration-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer px-6" style="max-height: 260px;">
+            <p class="pb-5 text-sm sm:text-base text-charcoal-muted leading-relaxed">
+              Recomendamos que os pelos tenham no mínimo <strong>0,5 cm de comprimento</strong> — o que equivale a cerca de <strong>15 dias sem usar lâmina</strong> (ou 20 a 25 dias após a última depilação com cera). Esse comprimento garante que a cera morna de alta elasticidade envolva o fio por inteiro e faça a extração desde a raiz, deixando a pele lisinha por muito mais tempo.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2: Se suja o apartamento -->
+        <div class="faq-item bg-sand rounded-2xl border border-sand-200 overflow-hidden transition-all">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-charcoal">2. O atendimento corre risco de sujar o piso ou móveis do meu apartamento?</span>
+            <span class="faq-icon w-8 h-8 rounded-full bg-sage-100 text-sage flex items-center justify-center shrink-0 transition-all duration-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="pb-5 text-sm sm:text-base text-charcoal-muted leading-relaxed">
+              <strong>Risco zero.</strong> Levamos nossa própria maca portátil profissional e forramos a área do equipamento com um <strong>tapete protetor impermeável</strong> exclusivo. Além disso, todo o material descartável utilizado é recolhido em embalagem própria e levado embora ao final do atendimento. Seu apartamento permanece 100% intacto e limpo.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3: Cuidados antes e depois -->
+        <div class="faq-item bg-sand rounded-2xl border border-sand-200 overflow-hidden transition-all">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-charcoal">3. Quais são os cuidados recomendados antes e depois da sessão (sol, piscina, esfoliação)?</span>
+            <span class="faq-icon w-8 h-8 rounded-full bg-sage-100 text-sage flex items-center justify-center shrink-0 transition-all duration-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="pb-5 text-sm sm:text-base text-charcoal-muted leading-relaxed">
+              <strong>Antes:</strong> Faça uma esfoliação suave até 3 dias antes da sessão (nunca no mesmo dia) e, no dia do atendimento, mantenha a pele limpa, livre de óleos corporais, hidratantes ou bronzeadores.<br/><br/>
+              <strong>Depois:</strong> Evite exposição direta ao sol, piscina (cloro), mar e treinos intensos com suor excessivo nas primeiras <strong>24 a 48 horas</strong>. Já aplicamos loção higienizante antes e gel calmante regenerador logo após a sessão!
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4: Formas de pagamento -->
+        <div class="faq-item bg-sand rounded-2xl border border-sand-200 overflow-hidden transition-all">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-charcoal">4. Quais são as formas de pagamento aceitas?</span>
+            <span class="faq-icon w-8 h-8 rounded-full bg-sage-100 text-sage flex items-center justify-center shrink-0 transition-all duration-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="pb-5 text-sm sm:text-base text-charcoal-muted leading-relaxed">
+              Aceitamos <strong>Pix</strong>, <strong>Cartões de Crédito e Débito</strong> (levamos maquininha com pagamento por aproximação / Apple Pay / Google Pay) e <strong>Dinheiro</strong>. O pagamento é realizado somente ao final da sua sessão.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5: Quais condomínios têm isenção de taxa -->
+        <div class="faq-item bg-sand rounded-2xl border border-sand-200 overflow-hidden transition-all">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-charcoal">5. Quais condomínios têm isenção da taxa de deslocamento?</span>
+            <span class="faq-icon w-8 h-8 rounded-full bg-sage-100 text-sage flex items-center justify-center shrink-0 transition-all duration-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="pb-5 text-sm sm:text-base text-charcoal-muted leading-relaxed">
+              Todos os moradores de <strong data-neighborhood-name>Nosso Condomínio & Vizinhança</strong> contam com <strong>Taxa de Deslocamento Zero</strong> (respeitando apenas o valor mínimo de atendimento Home Care para sessões avulsas). Se tiver dúvida se o seu prédio está na área de isenção, basta clicar no botão de WhatsApp e confirmar em segundos!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       H. RODAPÉ LIMPO + BARRA STICKY DO SIMULADOR + BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================= -->
+  <footer class="bg-sage-dark text-sand-100 pt-16 pb-28 sm:pb-16 border-t border-sage">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <!-- Marca -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-sage text-amber-cta flex items-center justify-center border border-white/10">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </div>
+            <span data-brand-full class="font-bold text-lg text-white">Studio Home Care | Depilação Profissional</span>
+          </div>
+          <p class="text-sm text-sand-200/80 max-w-sm leading-relaxed">
+            Clínica móvel de depilação profissional com maca portátil, proteção de piso e cera 100% descartável no conforto do seu apartamento.
+          </p>
+          <div class="inline-flex items-center gap-2 text-xs text-amber-cta font-semibold">
+            <span>📍 Atendimento exclusivo:</span>
+            <span data-neighborhood-name class="text-white">Nosso Condomínio & Vizinhança</span>
+          </div>
+        </div>
+
+        <!-- Links Rápidos -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-amber-cta">Navegação</h4>
+          <ul class="space-y-2 text-sm text-sand-200/80">
+            <li><a href="#como-funciona" class="hover:text-white transition-colors">Como Funciona</a></li>
+            <li><a href="#servicos" class="hover:text-white transition-colors">Menu de Serviços & Combos</a></li>
+            <li><a href="#depoimentos" class="hover:text-white transition-colors">Fotos & Depoimentos</a></li>
+            <li><a href="#agenda" class="hover:text-white transition-colors">Agendamento Online</a></li>
+            <li><a href="#duvidas" class="hover:text-white transition-colors">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Atendimento -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-amber-cta">Horários & Agendamento</h4>
+          <p class="text-sm text-sand-200/80">
+            Segunda a Sábado: 08h00 às 20h00<br/>
+            Atendimento exclusivamente com hora marcada.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-2.5">
+            <a href="#agenda" class="inline-flex items-center gap-2 bg-amber-cta hover:bg-amber-ctaHover text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors">
+              <span>Reservar pela Agenda</span>
+            </a>
+            <button type="button" data-whatsapp-trigger class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors">
+              <span>Chamar no WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-sand-200/60">
+        <p>© <span id="current-year">2026</span> <span data-brand-full>Studio Home Care | Depilação Profissional</span>. Todos os direitos reservados.</p>
+        <p>100% Cera Descartável • Maca Portátil • Taxa Zero no Condomínio</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       BARRA FLUTUANTE DO SIMULADOR (APARECE QUANDO HÁ SERVIÇOS SELECIONADOS)
+       ========================================================================= -->
+  <div id="floating-combo-bar" class="fixed bottom-4 left-4 right-20 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-full sm:max-w-2xl z-30 hidden transition-all duration-300">
+    <div class="bg-charcoal/95 backdrop-blur-md text-white rounded-2xl p-3.5 sm:px-5 sm:py-4 shadow-float border border-white/15 flex items-center justify-between gap-3">
+      <div class="min-w-0">
+        <div class="flex items-center gap-2">
+          <span id="floating-bar-count" class="px-2 py-0.5 rounded-full bg-amber-cta text-white text-[11px] font-bold">1 item</span>
+          <span id="floating-bar-duration" class="text-xs text-sand-200 font-medium">⏱ 50 min</span>
+        </div>
+        <p id="floating-bar-price" class="text-sm sm:text-base font-extrabold text-white truncate mt-0.5">
+          Total: R$ 140,00
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" id="floating-bar-schedule-btn" class="bg-amber-cta hover:bg-amber-ctaHover text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow transition-all">
+          Agendar Selecionados
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR DIREITO)
+       ========================================================================= -->
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
+    <button
+      type="button"
+      data-whatsapp-trigger
+      aria-label="Conversar no WhatsApp"
+      class="group relative flex items-center gap-3 bg-emerald-cta hover:bg-emerald-ctaDark text-white font-bold p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-float transition-all duration-200 hover:scale-[1.03] active:scale-95"
+    >
+      <!-- Badge contador quando o usuário seleciona serviços -->
+      <span id="whatsapp-float-badge" class="hidden absolute -top-1.5 -left-1.5 w-6 h-6 rounded-full bg-amber-cta text-white text-xs font-extrabold flex items-center justify-center border-2 border-white shadow">
+        0
+      </span>
+
+      <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.581 5.714-1.499c1.693.924 3.631 1.451 5.694 1.451 6.627 0 12-5.373 12-12s-5.381-12.392-11.408-12.392z"/>
+      </svg>
+      <span id="whatsapp-float-label" class="hidden sm:inline text-sm">Agendar no WhatsApp</span>
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DE AGENDAMENTO SEGURO (RESUMO DO COMBO + GOOGLE AGENDA / WHATSAPP)
+       ========================================================================= -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/70 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-sage/15 relative animate-fadeIn">
+      <button type="button" id="close-booking-modal" aria-label="Fechar modal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-sand hover:bg-sage-50 text-charcoal flex items-center justify-center transition-colors">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-2.5 mb-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-cta"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-sage">Finalizar Agendamento</span>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-extrabold text-charcoal">
+        Como você prefere reservar seu horário?
+      </h3>
+      <p class="text-sm text-charcoal-muted mt-1">
+        Seus serviços selecionados já estão prontos para envio ou consulta de agenda.
+      </p>
+
+      <!-- Resumo do Combo no Modal -->
+      <div id="modal-combo-box" class="mt-5 p-4 rounded-2xl bg-sand border border-sand-200 space-y-2">
+        <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-sage">
+          <span>Resumo da Sessão</span>
+          <span id="modal-summary-duration">0 min</span>
+        </div>
+        <p id="modal-summary-items" class="text-sm font-semibold text-charcoal">
+          Atendimento Home Care Personalizado
+        </p>
+        <div class="pt-2 border-t border-sand-200 flex items-center justify-between text-sm">
+          <span class="text-charcoal-muted">Investimento estimado:</span>
+          <strong id="modal-summary-price" class="text-base text-sage">Consulte</strong>
+        </div>
+      </div>
+
+      <!-- Ações do Modal -->
+      <div class="mt-6 space-y-3">
+        <button type="button" data-whatsapp-trigger class="w-full inline-flex items-center justify-center gap-3 bg-emerald-cta hover:bg-emerald-ctaDark text-white font-bold text-sm sm:text-base px-6 py-4 rounded-2xl shadow-md transition-all">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.581 5.714-1.499c1.693.924 3.631 1.451 5.694 1.451 6.627 0 12-5.373 12-12s-5.381-12.392-11.408-12.392z"/>
+          </svg>
+          <span>Enviar Combo pelo WhatsApp (Mais Rápido)</span>
+        </button>
+
+        <a data-calendar-external-link href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-sage hover:bg-sage-light text-white font-bold text-sm sm:text-base px-6 py-4 rounded-2xl shadow-md transition-all">
+          <svg class="w-5 h-5 text-amber-cta shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Escolher Horário no Google Agenda</span>
+        </a>
+      </div>
+
+      <p class="mt-4 text-center text-[11px] text-charcoal-muted">
+        📍 Taxa de deslocamento zero para moradores do condomínio e vizinhança.
+      </p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL LIGHTBOX DE FOTOS (AMPLIAÇÃO DA GALERIA DE PROVA SOCIAL)
+       ========================================================================= -->
+  <div id="photo-lightbox-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/85 backdrop-blur-md">
+    <div class="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+      <button type="button" id="close-lightbox-modal" aria-label="Fechar foto ampliada" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-charcoal/80 hover:bg-charcoal text-white flex items-center justify-center transition-colors shadow-lg">
+        ✕
+      </button>
+      <div class="bg-charcoal flex items-center justify-center max-h-[70vh] overflow-hidden">
+        <img id="lightbox-image" src="" alt="" class="w-full h-full max-h-[70vh] object-cover" />
+      </div>
+      <div class="p-5 sm:p-6 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span id="lightbox-tag" class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sage-100 text-sage mb-1"></span>
+          <h4 id="lightbox-title" class="text-lg font-extrabold text-charcoal"></h4>
+          <p id="lightbox-caption" class="text-xs sm:text-sm text-charcoal-muted mt-0.5"></p>
+        </div>
+        <a href="#agenda" id="lightbox-cta-btn" class="inline-flex items-center justify-center gap-2 bg-amber-cta hover:bg-amber-ctaHover text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl shadow shrink-0 transition-all">
+          <span>Agendar Minha Sessão</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       JAVASCRIPT VANILLA (CONFIGURAÇÃO GLOBAL NO TOPO + LÓGICA INTERATIVA)
+       ========================================================================= -->
+  <script>
+    /**
+     * =========================================================================
+     * CONFIGURAÇÕES GLOBAIS DA PÁGINA (EDITE FACILMENTE AQUI)
+     * =========================================================================
+     * Altere os dados abaixo com o seu número de WhatsApp (apenas números com DDI 55 e DDD),
+     * o seu link de agendamento do Google Calendar, o nome da marca e os preços dos serviços.
+     */
+    const CONFIG = {
+      // Número do WhatsApp com código do país (55) + DDD + Número (apenas dígitos)
+      WHATSAPP_NUMBER: "5581986904764",
+
+      // Link da página de Agendamento de Horários do Google Agenda (Google One / Workspace)
+      GOOGLE_CALENDAR_URL: "https://calendar.google.com/calendar/u/0/appointments/schedules/SEU_LINK_AQUI",
+
+      // Nome da Marca exibido no cabeçalho e rodapé
+      BRAND_NAME: "Studio Home Care | Depilação Profissional",
+
+      // Nome do Condomínio / Bairro exibido nos badges e textos
+      NEIGHBORHOOD_NAME: "Nosso Condomínio & Vizinhança",
+
+      // Valor mínimo para atendimento Home Care (em Reais)
+      MIN_HOME_CARE_VALUE: 90,
+
+      // Catálogo de Serviços e Combos (Tempos em minutos e Preços em Reais facilmente editáveis)
+      SERVICES: [
+        {
+          id: "combo-esportivo-masc",
+          title: "Combo Esportivo Masculino",
+          subtitle: "Costas + Ombros + Tórax/Abdômen",
+          description: "Ideal para quem treina, nada ou pedala. Extração limpa com cera morna elástica e gel calmante refrescante.",
+          category: ["masculino", "combos"],
+          durationMinutes: 50,
+          durationLabel: "50 min",
+          price: 160,
+          badge: "Mais Pedido Masculino",
+          isSingleArea: false
+        },
+        {
+          id: "combo-performance",
+          title: "Combo Performance",
+          subtitle: "Pernas Completas + Axilas",
+          description: "Alta definição e zero atrito para corrida, ciclismo ou rotina intensa. Pele lisa por até 4 semanas.",
+          category: ["masculino", "feminino", "combos"],
+          durationMinutes: 50,
+          durationLabel: "50 min",
+          price: 150,
+          badge: "Alta Performance",
+          isSingleArea: false
+        },
+        {
+          id: "combo-essencial-fem",
+          title: "Combo Essencial Feminino",
+          subtitle: "Virilha Completa + Axilas + Buço Cortesia",
+          description: "Protocolo delicado com cera morna dermatologicamente testada de baixa fusão e toque suave.",
+          category: ["feminino", "combos"],
+          durationMinutes: 45,
+          durationLabel: "45 min",
+          price: 135,
+          badge: "Buço Cortesia",
+          isSingleArea: false
+        },
+        {
+          id: "combo-completo-vip",
+          title: "Combo Completo",
+          subtitle: "Perna Inteira + Virilha + Axilas",
+          description: "Sessão completa de spa no seu apartamento. Praticidade total com hidratação calmante pós-depilatória.",
+          category: ["feminino", "combos"],
+          durationMinutes: 75,
+          durationLabel: "1h15",
+          price: 195,
+          badge: "Melhor Custo-Benefício",
+          isSingleArea: false
+        },
+        {
+          id: "areas-avulsas",
+          title: "Áreas Avulsas",
+          subtitle: "Costas, Peito, Pernas, Virilha ou Axilas",
+          description: "Escolha regiões individuais conforme sua necessidade. Combine áreas para atingir o valor mínimo Home Care.",
+          category: ["masculino", "feminino"],
+          durationMinutes: 30,
+          durationLabel: "30 min",
+          price: 90,
+          badge: "A partir de R$ 90 (Mín. Home Care)",
+          isSingleArea: true
+        }
+      ],
+
+      // Galeria de Fotos do Atendimento (Fotos exclusivas geradas em ./fotos/)
+      GALLERY_PHOTOS: [
+        {
+          id: "foto-setup",
+          imageUrl: "./fotos/setup-maca-apartamento.jpg",
+          tag: "Estrutura Móvel",
+          title: "Maca Portátil no Seu Apartamento",
+          caption: "Montagem rápida em 3 minutos em qualquer espaço de 2m x 1,5m, sem usar sua cama, sofá ou toalhas."
+        },
+        {
+          id: "foto-cera",
+          imageUrl: "./fotos/kit-biosseguranca-cera.jpg",
+          tag: "100% Descartável",
+          title: "Cera Morna & Kit Individual Lacrado",
+          caption: "Cera elástica de baixa fusão com espátulas, luvas nitrílicas e consumíveis abertos na sua presença."
+        },
+        {
+          id: "foto-piso",
+          imageUrl: "./fotos/piso-protegido-higienizado.jpg",
+          tag: "Proteção Total",
+          title: "Tapete Isolante Impermeável",
+          caption: "Forração protetora sob a maca e o carrinho térmico: risco zero de respingos no seu porcelanato ou madeira."
+        },
+        {
+          id: "foto-pos",
+          imageUrl: "./fotos/pos-depilacao-calmante.jpg",
+          tag: "Protocolo Calmante",
+          title: "Cuidado Pós-Depilatório de Spa",
+          caption: "Finalização com gel calmante botânico que fecha os poros, hidrata e evita vermelhidão ou foliculite."
+        }
+      ],
+
+      // Depoimentos de Clientes / Moradores do Condomínio e Vizinhança
+      TESTIMONIALS: [
+        {
+          id: "dep-1",
+          name: "Mariana S.",
+          role: "Moradora • Torre B",
+          avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80",
+          rating: 5,
+          serviceTag: "Combo Completo VIP",
+          text: "Impecável! Eu tinha receio de fazer em casa e pingar cera no porcelanato, mas ela forra tudo com tapete protetor e traz a maca própria. Não sujou absolutamente nada e a cera morna quase não dói."
+        },
+        {
+          id: "dep-2",
+          name: "Rodrigo M.",
+          role: "Triatleta & Morador • Condomínio Vizinho",
+          avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80",
+          rating: 5,
+          serviceTag: "Combo Esportivo Masculino",
+          text: "Melhor descoberta no bairro. Chega no horário cravado, monta a maca na sala em 3 minutos e o atendimento é super profissional. Para quem treina todo dia e não quer perder tempo no trânsito, vale ouro."
+        },
+        {
+          id: "dep-3",
+          name: "Camila F.",
+          role: "Moradora • Bloco A",
+          avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=250&q=80",
+          rating: 5,
+          serviceTag: "Combo Essencial Feminino",
+          text: "Higiene nota mil! O kit vem todo lacrado, a cera tem uma temperatura super confortável e o gel pós-depilação deixa a pele perfeita. Já deixei meu horário fixo todo mês pela agenda online."
+        },
+        {
+          id: "dep-4",
+          name: "Lucas & Beatriz",
+          role: "Casal Morador • Torre C",
+          avatarUrl: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=250&q=80",
+          rating: 5,
+          serviceTag: "Combo Casal / Performance",
+          text: "Agendamos juntos no sábado de manhã sem precisar tirar o carro da garagem. Troca todo o lençol de TNT e abre um kit novo entre cada atendimento. Praticidade e higiene de clínica mesmo!"
+        },
+        {
+          id: "dep-5",
+          name: "Fernanda T.",
+          role: "Executiva em Home Office • Vizinhança",
+          avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=250&q=80",
+          rating: 5,
+          serviceTag: "Combo Completo VIP",
+          text: "Consegui encaixar minha sessão entre duas reuniões do trabalho! Em 1 hora já estava pronta, sem trânsito, sem espera em recepção de salão e com meu apartamento impecável ao final."
+        },
+        {
+          id: "dep-6",
+          name: "André V.",
+          role: "Nadador & Morador • Bloco D",
+          avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=250&q=80",
+          rating: 5,
+          serviceTag: "Combo Performance",
+          text: "Tenho a pele sensível e costumava ter foliculite com lâmina. Com a cera morna elástica e a loção calmante que aplicam no final, zero irritação. Atendimento extremamente discreto e pontual."
+        }
+      ]
+    };
+
+    /* =========================================================================
+       ESTADO DA APLICAÇÃO
+       ========================================================================= */
+    const state = {
+      activeTab: "all",
+      selectedServiceIds: new Set()
+    };
+
+    /* =========================================================================
+       FUNÇÕES UTILITÁRIAS
+       ========================================================================= */
+    function formatCurrency(value) {
+      return value.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function formatDuration(totalMinutes) {
+      if (totalMinutes <= 0) return "0 min";
+      const hours = Math.floor(totalMinutes / 60);
+      const mins = totalMinutes % 60;
+      if (hours === 0) return `${mins} min`;
+      if (mins === 0) return `${hours}h`;
+      return `${hours}h ${mins}min`;
+    }
+
+    function getSelectedServices() {
+      return CONFIG.SERVICES.filter((service) => state.selectedServiceIds.has(service.id));
+    }
+
+    function buildWhatsAppUrl() {
+      const cleanPhone = CONFIG.WHATSAPP_NUMBER.replace(/\D/g, "");
+      const selected = getSelectedServices();
+
+      let message = `Olá! Sou morador(a) de *${CONFIG.NEIGHBORHOOD_NAME}* e gostaria de agendar uma sessão de depilação Home Care no meu apartamento.`;
+
+      if (selected.length > 0) {
+        const totalMinutes = selected.reduce((acc, item) => acc + item.durationMinutes, 0);
+        const rawTotal = selected.reduce((acc, item) => acc + item.price, 0);
+        const finalTotal = Math.max(rawTotal, CONFIG.MIN_HOME_CARE_VALUE);
+
+        const itemsText = selected
+          .map((s) => `• *${s.title}* (${s.subtitle}) — ${s.durationLabel} (${formatCurrency(s.price)})`)
+          .join("\n");
+
+        message += `\n\n*Serviços selecionados no site:*\n${itemsText}`;
+        message += `\n\n⏱ *Duração estimada:* ${formatDuration(totalMinutes)}`;
+        message += `\n💳 *Valor estimado:* ${formatCurrency(finalTotal)} (Taxa de deslocamento zero)`;
+      } else {
+        message += `\n\nPoderia me informar os próximos horários disponíveis?`;
+      }
+
+      return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+    }
+
+    /* =========================================================================
+       APLICAÇÃO DAS VARIÁVEIS DO CONFIG NO DOM
+       ========================================================================= */
+    function applyGlobalConfig() {
+      // Nome da Marca dividido em título e subtítulo se houver "|"
+      const brandParts = CONFIG.BRAND_NAME.split("|").map((part) => part.trim());
+      const mainTitle = brandParts[0] || CONFIG.BRAND_NAME;
+      const subTitle = brandParts[1] || "Depilação Profissional";
+
+      document.querySelectorAll("[data-brand-title]").forEach((el) => {
+        el.textContent = mainTitle;
+      });
+      document.querySelectorAll("[data-brand-subtitle]").forEach((el) => {
+        el.textContent = subTitle;
+      });
+      document.querySelectorAll("[data-brand-full]").forEach((el) => {
+        el.textContent = CONFIG.BRAND_NAME;
+      });
+      document.querySelectorAll("[data-neighborhood-name]").forEach((el) => {
+        el.textContent = CONFIG.NEIGHBORHOOD_NAME;
+      });
+
+      const minValEl = document.getElementById("min-order-value-display");
+      if (minValEl) {
+        minValEl.textContent = formatCurrency(CONFIG.MIN_HOME_CARE_VALUE);
+      }
+
+      // Configura links e iframe do Google Agenda
+      const isPlaceholderUrl =
+        !CONFIG.GOOGLE_CALENDAR_URL ||
+        CONFIG.GOOGLE_CALENDAR_URL.includes("SEU_LINK_AQUI");
+
+      const iframe = document.getElementById("google-calendar-iframe");
+      const fallbackCard = document.getElementById("calendar-fallback-card");
+
+      if (!isPlaceholderUrl && iframe && fallbackCard) {
+        iframe.src = CONFIG.GOOGLE_CALENDAR_URL;
+        iframe.classList.remove("hidden");
+        fallbackCard.classList.add("hidden");
+      }
+
+      document.querySelectorAll("[data-calendar-external-link]").forEach((link) => {
+        if (!isPlaceholderUrl) {
+          link.href = CONFIG.GOOGLE_CALENDAR_URL;
+        } else {
+          // Se ainda estiver com o placeholder, abre o WhatsApp ou rola para a agenda
+          link.href = buildWhatsAppUrl();
+        }
+      });
+
+      const yearEl = document.getElementById("current-year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    }
+
+    /* =========================================================================
+       RENDERIZAÇÃO DOS CARDS DE SERVIÇO E SIMULADOR DE COMBO
+       ========================================================================= */
+    function renderServices() {
+      const grid = document.getElementById("services-grid");
+      if (!grid) return;
+
+      const filtered = CONFIG.SERVICES.filter((service) => {
+        if (state.activeTab === "all") return true;
+        return service.category.includes(state.activeTab);
+      });
+
+      grid.innerHTML = filtered
+        .map((service) => {
+          const isSelected = state.selectedServiceIds.has(service.id);
+
+          return `
+            <article
+              data-service-id="${service.id}"
+              role="button"
+              tabindex="0"
+              aria-pressed="${isSelected}"
+              class="service-card ${isSelected ? "selected" : "bg-sand"} rounded-3xl p-6 sm:p-7 border-2 ${
+                isSelected ? "border-sage" : "border-sand-200 hover:border-sage/40"
+              } cursor-pointer flex flex-col justify-between relative select-none"
+            >
+              <div>
+                <!-- Topo do Card: Badge + Checkbox Visual -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider ${
+                    service.isSingleArea
+                      ? "bg-amber-soft text-amber-ctaHover border border-amber-cta/30"
+                      : "bg-sage-100 text-sage"
+                  }">
+                    ${service.badge}
+                  </span>
+
+                  <div class="w-7 h-7 rounded-xl border-2 flex items-center justify-center transition-colors ${
+                    isSelected
+                      ? "bg-sage border-sage text-white"
+                      : "bg-white border-sage/25 text-transparent"
+                  }">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Título & Subtítulo -->
+                <h3 class="text-lg sm:text-xl font-extrabold text-charcoal leading-snug">
+                  ${service.title}
+                </h3>
+                <p class="text-xs sm:text-sm font-bold text-sage mt-1">
+                  ${service.subtitle}
+                </p>
+
+                <!-- Descrição -->
+                <p class="text-xs sm:text-sm text-charcoal-muted mt-3 leading-relaxed">
+                  ${service.description}
+                </p>
+
+                ${
+                  service.isSingleArea
+                    ? `<div class="mt-3 px-3 py-2 rounded-xl bg-white/80 border border-amber-cta/25 text-[11px] text-charcoal-muted">
+                         💡 <strong>Aviso Home Care:</strong> Valor mínimo de visita ${formatCurrency(CONFIG.MIN_HOME_CARE_VALUE)}.
+                       </div>`
+                    : ""
+                }
+              </div>
+
+              <!-- Rodapé do Card: Tempo Médio + Preço + Ação -->
+              <div class="mt-6 pt-4 border-t border-sand-200/80 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5 text-xs font-semibold text-charcoal-muted">
+                  <svg class="w-4 h-4 text-sage" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span>${service.durationLabel}</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <span class="text-lg sm:text-xl font-extrabold text-sage">
+                    ${formatCurrency(service.price)}
+                  </span>
+                  <span class="text-xs font-bold px-3 py-1.5 rounded-xl transition-colors ${
+                    isSelected
+                      ? "bg-sage text-white"
+                      : "bg-white text-sage border border-sage/20"
+                  }">
+                    ${isSelected ? "Selecionado ✓" : "+ Selecionar"}
+                  </span>
+                </div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      // Eventos de clique e teclado nos cards
+      grid.querySelectorAll("[data-service-id]").forEach((card) => {
+        const toggleCard = () => {
+          const id = card.getAttribute("data-service-id");
+          if (state.selectedServiceIds.has(id)) {
+            state.selectedServiceIds.delete(id);
+          } else {
+            state.selectedServiceIds.add(id);
+          }
+          renderServices();
+          updateComboSummaryUI();
+        };
+
+        card.addEventListener("click", toggleCard);
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleCard();
+          }
+        });
+      });
+    }
+
+    function updateComboSummaryUI() {
+      const selected = getSelectedServices();
+      const count = selected.length;
+      const totalMinutes = selected.reduce((acc, item) => acc + item.durationMinutes, 0);
+      const rawTotal = selected.reduce((acc, item) => acc + item.price, 0);
+      const finalTotal = count > 0 ? Math.max(rawTotal, CONFIG.MIN_HOME_CARE_VALUE) : 0;
+
+      // Elementos do resumo inline
+      const countBadge = document.getElementById("summary-count-badge");
+      const titleEl = document.getElementById("summary-title");
+      const itemsListEl = document.getElementById("summary-items-list");
+      const durationEl = document.getElementById("summary-duration");
+      const priceEl = document.getElementById("summary-price");
+      const clearBtn = document.getElementById("clear-selection-btn");
+
+      // Elementos da barra flutuante
+      const floatingBar = document.getElementById("floating-combo-bar");
+      const floatingCount = document.getElementById("floating-bar-count");
+      const floatingDuration = document.getElementById("floating-bar-duration");
+      const floatingPrice = document.getElementById("floating-bar-price");
+
+      // Elementos na seção da agenda e botão WhatsApp
+      const agendaBanner = document.getElementById("agenda-selected-banner");
+      const agendaBannerItems = document.getElementById("agenda-banner-items");
+      const agendaBannerMeta = document.getElementById("agenda-banner-meta");
+      const whatsappBadge = document.getElementById("whatsapp-float-badge");
+      const whatsappLabel = document.getElementById("whatsapp-float-label");
+
+      // Elementos no modal
+      const modalDuration = document.getElementById("modal-summary-duration");
+      const modalItems = document.getElementById("modal-summary-items");
+      const modalPrice = document.getElementById("modal-summary-price");
+
+      if (count === 0) {
+        countBadge.textContent = "0 selecionados";
+        titleEl.textContent = "Selecione um ou mais serviços acima para calcular sua sessão";
+        itemsListEl.textContent = "Taxa de deslocamento: R$ 0,00 (Isento para o condomínio e vizinhança parceira)";
+        durationEl.textContent = "0 min";
+        priceEl.textContent = "R$ 0,00";
+        clearBtn.classList.add("hidden");
+        floatingBar.classList.add("hidden");
+        agendaBanner.classList.add("hidden");
+        whatsappBadge.classList.add("hidden");
+        whatsappLabel.textContent = "Agendar no WhatsApp";
+
+        modalDuration.textContent = "Sessão personalizada";
+        modalItems.textContent = "Atendimento Home Care (Escolha seus serviços ou fale conosco)";
+        modalPrice.textContent = `Mín. ${formatCurrency(CONFIG.MIN_HOME_CARE_VALUE)}`;
+      } else {
+        const namesJoined = selected.map((s) => `${s.title} (${s.subtitle})`).join(" + ");
+        const shortNamesJoined = selected.map((s) => s.title).join(" + ");
+
+        countBadge.textContent = count === 1 ? "1 serviço selecionado" : `${count} serviços selecionados`;
+        titleEl.textContent = shortNamesJoined;
+        itemsListEl.textContent = `Inclui: ${namesJoined} • Taxa de Deslocamento Zero`;
+        durationEl.textContent = formatDuration(totalMinutes);
+        priceEl.textContent = formatCurrency(finalTotal);
+        clearBtn.classList.remove("hidden");
+
+        // Barra Flutuante
+        floatingBar.classList.remove("hidden");
+        floatingCount.textContent = count === 1 ? "1 serviço" : `${count} serviços`;
+        floatingDuration.textContent = `⏱ ${formatDuration(totalMinutes)}`;
+        floatingPrice.textContent = `${formatCurrency(finalTotal)} • ${shortNamesJoined}`;
+
+        // Banner na seção Agenda
+        agendaBanner.classList.remove("hidden");
+        agendaBannerItems.textContent = shortNamesJoined;
+        agendaBannerMeta.textContent = `⏱ ${formatDuration(totalMinutes)} • ${formatCurrency(finalTotal)}`;
+
+        // WhatsApp Flutuante
+        whatsappBadge.textContent = String(count);
+        whatsappBadge.classList.remove("hidden");
+        whatsappLabel.textContent = `Agendar (${count})`;
+
+        // Modal
+        modalDuration.textContent = `⏱ ${formatDuration(totalMinutes)}`;
+        modalItems.textContent = namesJoined;
+        modalPrice.textContent = formatCurrency(finalTotal);
+      }
+
+      // Atualiza links caso Google Calendar ainda seja placeholder
+      const isPlaceholderUrl =
+        !CONFIG.GOOGLE_CALENDAR_URL ||
+        CONFIG.GOOGLE_CALENDAR_URL.includes("SEU_LINK_AQUI");
+      if (isPlaceholderUrl) {
+        document.querySelectorAll("[data-calendar-external-link]").forEach((link) => {
+          link.href = buildWhatsAppUrl();
+        });
+      }
+    }
+
+    /* =========================================================================
+       INTERAÇÕES DE UI (ABAS, FAQ, MENU MOBILE, MODAL E SCROLL REVEAL)
+       ========================================================================= */
+    function setupFilterTabs() {
+      const tabs = document.querySelectorAll("[data-filter-tab]");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          state.activeTab = tab.getAttribute("data-filter-tab");
+
+          tabs.forEach((t) => {
+            const isActive = t.getAttribute("data-filter-tab") === state.activeTab;
+            t.className = isActive
+              ? "filter-tab active-tab px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-sage text-white shadow-sm"
+              : "filter-tab px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-sand text-charcoal hover:bg-sage-50 border border-sand-200";
+          });
+
+          renderServices();
+        });
+      });
+
+      const clearBtn = document.getElementById("clear-selection-btn");
+      if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+          state.selectedServiceIds.clear();
+          renderServices();
+          updateComboSummaryUI();
+        });
+      }
+    }
+
+    function setupFaqAccordion() {
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const trigger = item.querySelector(".faq-trigger");
+        const answer = item.querySelector(".faq-answer");
+
+        trigger.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+
+          // Fecha outros itens para manter visual clean
+          faqItems.forEach((other) => {
+            other.classList.remove("open");
+            const otherAnswer = other.querySelector(".faq-answer");
+            if (otherAnswer) otherAnswer.style.maxHeight = "0px";
+          });
+
+          if (!isOpen) {
+            item.classList.add("open");
+            answer.style.maxHeight = answer.scrollHeight + 24 + "px";
+          }
+        });
+      });
+    }
+
+    function setupMobileMenu() {
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      const iconOpen = document.getElementById("menu-icon-open");
+      const iconClose = document.getElementById("menu-icon-close");
+
+      if (!btn || !menu) return;
+
+      const toggleMenu = (forceClose = false) => {
+        const isHidden = menu.classList.contains("hidden");
+        if (forceClose || !isHidden) {
+          menu.classList.add("hidden");
+          iconOpen.classList.remove("hidden");
+          iconClose.classList.add("hidden");
+        } else {
+          menu.classList.remove("hidden");
+          iconOpen.classList.add("hidden");
+          iconClose.classList.remove("hidden");
+        }
+      };
+
+      btn.addEventListener("click", () => toggleMenu(false));
+      document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+        link.addEventListener("click", () => toggleMenu(true));
+      });
+    }
+
+    function setupModalAndBookingButtons() {
+      const modal = document.getElementById("booking-modal");
+      const closeBtn = document.getElementById("close-booking-modal");
+      const openModalBtn = document.getElementById("open-calendar-modal-btn");
+      const scheduleSelectedBtn = document.getElementById("schedule-selected-btn");
+      const floatingScheduleBtn = document.getElementById("floating-bar-schedule-btn");
+
+      const openModal = () => {
+        updateComboSummaryUI();
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      };
+
+      const closeModal = () => {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      };
+
+      if (openModalBtn) openModalBtn.addEventListener("click", openModal);
+      if (scheduleSelectedBtn) scheduleSelectedBtn.addEventListener("click", openModal);
+      if (floatingScheduleBtn) floatingScheduleBtn.addEventListener("click", openModal);
+      if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+      if (modal) {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // Todos os botões de WhatsApp abrem a URL dinâmica com os serviços escolhidos
+      document.querySelectorAll("[data-whatsapp-trigger]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          window.open(buildWhatsAppUrl(), "_blank", "noopener,noreferrer");
+        });
+      });
+    }
+
+    /* =========================================================================
+       RENDERIZAÇÃO DA PROVA SOCIAL (GALERIA DE FOTOS + DEPOIMENTOS + LIGHTBOX)
+       ========================================================================= */
+    function renderSocialProof() {
+      const galleryGrid = document.getElementById("photo-gallery-grid");
+      const testimonialsGrid = document.getElementById("testimonials-grid");
+      const lightboxModal = document.getElementById("photo-lightbox-modal");
+      const closeLightboxBtn = document.getElementById("close-lightbox-modal");
+      const lightboxCtaBtn = document.getElementById("lightbox-cta-btn");
+      const lightboxImg = document.getElementById("lightbox-image");
+      const lightboxTag = document.getElementById("lightbox-tag");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+
+      if (galleryGrid && Array.isArray(CONFIG.GALLERY_PHOTOS)) {
+        galleryGrid.innerHTML = CONFIG.GALLERY_PHOTOS.map(
+          (photo) => `
+            <figure
+              data-photo-id="${photo.id}"
+              tabindex="0"
+              role="button"
+              aria-label="Ampliar foto: ${photo.title}"
+              class="group relative rounded-3xl overflow-hidden bg-white border border-sand-200 shadow-sm hover:shadow-spa cursor-pointer transition-all duration-300"
+            >
+              <div class="aspect-[4/3] w-full overflow-hidden bg-sage-50 relative">
+                <img
+                  src="${photo.imageUrl}"
+                  alt="${photo.title}"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/15 to-transparent"></div>
+                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/95 text-sage shadow-sm">
+                  ${photo.tag}
+                </span>
+                <span class="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-charcoal/60 text-white flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                  </svg>
+                </span>
+              </div>
+              <figcaption class="p-4 sm:p-5 bg-white">
+                <h4 class="text-sm sm:text-base font-extrabold text-charcoal group-hover:text-sage transition-colors">
+                  ${photo.title}
+                </h4>
+                <p class="text-xs text-charcoal-muted mt-1 leading-relaxed">
+                  ${photo.caption}
+                </p>
+              </figcaption>
+            </figure>
+          `
+        ).join("");
+
+        const openLightbox = (photo) => {
+          if (!lightboxModal || !photo) return;
+          lightboxImg.src = photo.imageUrl;
+          lightboxImg.alt = photo.title;
+          lightboxTag.textContent = photo.tag;
+          lightboxTitle.textContent = photo.title;
+          lightboxCaption.textContent = photo.caption;
+          lightboxModal.classList.remove("hidden");
+          lightboxModal.classList.add("flex");
+        };
+
+        const closeLightbox = () => {
+          if (!lightboxModal) return;
+          lightboxModal.classList.add("hidden");
+          lightboxModal.classList.remove("flex");
+        };
+
+        galleryGrid.querySelectorAll("[data-photo-id]").forEach((card) => {
+          const triggerOpen = () => {
+            const id = card.getAttribute("data-photo-id");
+            const photo = CONFIG.GALLERY_PHOTOS.find((p) => p.id === id);
+            openLightbox(photo);
+          };
+          card.addEventListener("click", triggerOpen);
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              triggerOpen();
+            }
+          });
+        });
+
+        if (closeLightboxBtn) closeLightboxBtn.addEventListener("click", closeLightbox);
+        if (lightboxCtaBtn) lightboxCtaBtn.addEventListener("click", closeLightbox);
+        if (lightboxModal) {
+          lightboxModal.addEventListener("click", (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+          });
+        }
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeLightbox();
+        });
+      }
+
+      if (testimonialsGrid && Array.isArray(CONFIG.TESTIMONIALS)) {
+        testimonialsGrid.innerHTML = CONFIG.TESTIMONIALS.map(
+          (item) => `
+            <article class="bg-white rounded-3xl p-6 sm:p-7 border border-sand-200 shadow-sm hover:shadow-spa transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <!-- Estrelas + Selo Verificado -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <div class="flex items-center gap-0.5 text-amber-cta text-sm" aria-label="${item.rating} de 5 estrelas">
+                    ${"★".repeat(item.rating || 5)}
+                  </div>
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-ctaDark bg-emerald-cta/10 px-2.5 py-0.5 rounded-full">
+                    ✓ Morador(a) Verificado(a)
+                  </span>
+                </div>
+
+                <!-- Texto do Depoimento -->
+                <blockquote class="text-sm sm:text-base text-charcoal leading-relaxed font-normal">
+                  “${item.text}”
+                </blockquote>
+              </div>
+
+              <!-- Autor + Serviço Realizado -->
+              <div class="mt-6 pt-4 border-t border-sand-200 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                  <img
+                    src="${item.avatarUrl}"
+                    alt="${item.name}"
+                    loading="lazy"
+                    class="w-11 h-11 rounded-full object-cover border-2 border-sage/20 shrink-0"
+                  />
+                  <div class="min-w-0">
+                    <h4 class="text-sm font-extrabold text-charcoal truncate">${item.name}</h4>
+                    <p class="text-xs text-charcoal-muted truncate">${item.role}</p>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-lg bg-sage-50 text-sage text-[11px] font-bold shrink-0">
+                  ${item.serviceTag}
+                </span>
+              </div>
+            </article>
+          `
+        ).join("");
+      }
+    }
+
+    function setupScrollReveal() {
+      const reveals = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        reveals.forEach((el) => el.classList.add("active"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+    }
+
+    /* =========================================================================
+       INICIALIZAÇÃO
+       ========================================================================= */
+    document.addEventListener("DOMContentLoaded", () => {
+      applyGlobalConfig();
+      renderServices();
+      renderSocialProof();
+      updateComboSummaryUI();
+      setupFilterTabs();
+      setupFaqAccordion();
+      setupMobileMenu();
+      setupModalAndBookingButtons();
+      setupScrollReveal();
+    });
+  </script>
+</body>
+</html>
