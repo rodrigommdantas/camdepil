@@ -602,12 +602,12 @@
           </div>
 
           <!-- Área do Iframe do Google Agenda / Fallback Inteligente -->
-          <div class="relative w-full min-h-[540px] bg-sand/50 flex flex-col justify-center">
+          <div class="relative w-full min-h-[600px] bg-white flex flex-col justify-center">
             <!-- Iframe Real do Google Calendar Appointments -->
             <iframe
               id="google-calendar-iframe"
               title="Agendamento de Horários Google Agenda"
-              class="w-full h-[580px] border-0 hidden"
+              class="w-full h-[640px] border-0 hidden"
               loading="lazy"
             ></iframe>
 
@@ -1057,7 +1057,10 @@
       WHATSAPP_NUMBER: "5581986904764",
 
       // Link da página de Agendamento de Horários do Google Agenda (Google One / Workspace)
-      GOOGLE_CALENDAR_URL: "https://calendar.google.com/calendar/u/0/appointments/schedules/SEU_LINK_AQUI",
+      GOOGLE_CALENDAR_URL: "https://calendar.app.google/RJ5yHi33YgGCd9fp6",
+
+      // Link direto de incorporação (Embed) do Google Agenda para carregar o calendário dentro da página
+      GOOGLE_CALENDAR_EMBED_URL: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3mIyLL-KiTwlJRFlrQlTuLfArIAE9dOMQt1UmyceDAmL6riEPn6ncnqoaa3FA_pPzId5pbaq4H?gv=true",
 
       // Nome da Marca exibido no cabeçalho e rodapé
       BRAND_NAME: "Studio Home Care | Depilação Profissional",
@@ -1338,9 +1341,10 @@
 
       const iframe = document.getElementById("google-calendar-iframe");
       const fallbackCard = document.getElementById("calendar-fallback-card");
+      const embedUrl = CONFIG.GOOGLE_CALENDAR_EMBED_URL || CONFIG.GOOGLE_CALENDAR_URL;
 
       if (!isPlaceholderUrl && iframe && fallbackCard) {
-        iframe.src = CONFIG.GOOGLE_CALENDAR_URL;
+        iframe.src = embedUrl;
         iframe.classList.remove("hidden");
         fallbackCard.classList.add("hidden");
       }
